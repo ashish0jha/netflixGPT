@@ -6,7 +6,8 @@ export const checkValidation=(name,email,password)=>{
     }
     
 
-    const isValidemail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+    const isValidemail = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+
 
     const isValidPassword=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
 

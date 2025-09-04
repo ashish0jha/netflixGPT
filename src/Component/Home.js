@@ -1,6 +1,8 @@
 import Header from "./Header";
 import { useState , useRef } from "react";
 import {checkValidation} from "../utils/validate";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
+import { auth } from "../utils/firebase"
 
 const Home = () => {
   const [loginbtn,setloginbtn]=useState(true);
@@ -16,13 +18,45 @@ const Home = () => {
     
     let check;
     if(name.current){
-      check=checkValidation(name.input.current.value,email.input.current.value,password.input.current.value);
+      check=checkValidation(name.current.value,email.current.value,password.current.value);
     }else{
       check=checkValidation(null,email.current.value,password.current.value);
     }
-
-    console.log(check);
     setValidationmsg(check);
+    if(check) return;
+
+    //For Sign Up (Creating users Account )
+
+    if(signup){
+      createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+          setValidationmsg(errorCode+" "+errorMessage);
+      });
+
+    }
+    else{
+      signInWithEmailAndPassword(auth,email.current.value,password.current.value)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log("dxfcgvhj",user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setValidationmsg(errorCode+" "+errorMessage);
+      });
+    }
 
   }
   return (
@@ -37,7 +71,7 @@ const Home = () => {
         <div>
             {
               loginbtn===true 
-              ? <div  className="absolute top-1/4 left-1/3 w-5/12 flex flex-col items-center p-10 bg-black bg-opacity-70 rounded-lg">
+              ? <div  className="absolute top-1/4 left-1/3 w-5/12 flex flex-col items-center p-10 bg-black bg-opacity-30 rounded-lg">
                   <h1 className="font-bold text-white text-5xl text-center">Unlimited movies ,TV shows and more</h1>
                   <h3 className="font-semibold text-white text-center my-6 text-2xl">Starts at ₹149. Cancel at any time.</h3>
                   <p className="text-white text-lg">Ready to watch? Enter your email to create or restart your membership.</p>
@@ -73,7 +107,6 @@ const Home = () => {
 
                     <button className="m-3 px-3 rounded-md font-semibold py-1 bg-red-600 text-white"
                     onClick={clickHandler}>{signup ? "Sign UP" : "Sign In"}</button>
-
 
                     <p 
                     className="text-white text-lg p-0 m-3 cursor-pointer"
