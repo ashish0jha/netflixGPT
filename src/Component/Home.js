@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfil
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { Profile } from "../utils/constants";
 
 const Home = () => {
   const [loginbtn,setloginbtn]=useState(true);
@@ -39,7 +40,7 @@ const Home = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
+            photoURL: Profile
 
           }).then(() => {
             const {uid,email,displayName,photoURL} = auth.currentUser;
@@ -66,8 +67,7 @@ const Home = () => {
       signInWithEmailAndPassword(auth,email.current.value,password.current.value)
       .then((userCredential) => {
         // Signed in 
-        const user = userCredential.user;
-        console.log(user);
+        //const user = userCredential.user;
         
       })
       .catch((error) => {
