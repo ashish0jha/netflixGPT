@@ -13,8 +13,6 @@ const useNowPlayingMovies=()=>{
         const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?-US&page=1', API_options)
         
         const json=await data.json();
-
-        console.log(json.results);
         dispatch(addnowPlayingMovies(json.results));
     }
 }

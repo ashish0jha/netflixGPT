@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Profile } from "../utils/constants";
+import { applyMiddleware } from "@reduxjs/toolkit";
 
 const Home = () => {
   const [loginbtn,setloginbtn]=useState(true);
@@ -13,14 +14,18 @@ const Home = () => {
 
   const dispatch=useDispatch();
 
-  const [Validationmsg,setValidationmsg]=useState();
+  const [Validationmsg,setValidationmsg]=useState("");
 
   const name=useRef(null);
   const email=useRef(null);
   const password=useRef(null);
 
   const clickHandler=()=>{
-    
+    if(signup && name.current.value===""){
+      setValidationmsg("Enter the Name");
+      return;
+    }
+
     let check;
     if(name.current){
       check=checkValidation(name.current.value,email.current.value,password.current.value);
