@@ -14,14 +14,13 @@ const VideoBG = ({id}) => {
       const filteredData=json.results.filter((video)=>video.type==="Trailer");
       const Trailer=filteredData.length ? filteredData[0] : json.results[0];
 
-      console.log(Trailer);
       settrailerId(Trailer.key)
       
   }
   return (
     <div className="overflow-hidden">
         <iframe
-          className="aspect-video scale-150"
+          className="w-full h-screen aspect-video scale-150"
           src={`https://www.youtube.com/embed/${trailerId}?autoplay=1&mute=1&loop=1&playlist=${trailerId}`}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

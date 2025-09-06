@@ -9,3 +9,5 @@ export const API_options={
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MGU4Mzg5NWNjOGZkMWE3ZjZkNjYyZWZkNDliNjk5ZCIsIm5iZiI6MTc1NzA2MzQ1OS41NDU5OTk4LCJzdWIiOiI2OGJhYTkyM2Y4OTZmYzY4NGI0ZTUzMjQiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.UMs0fqcO62g2xHIC09OGwK6YNVfKT5fyjlKmG2h8bMI'
   }
 };
+
+export const MoviePoster="https://image.tmdb.org/t/p/w300";
