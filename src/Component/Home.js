@@ -5,8 +5,7 @@ import { createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfil
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { Profile } from "../utils/constants";
-import { applyMiddleware } from "@reduxjs/toolkit";
+import { BG_Page, Profile } from "../utils/constants";
 
 const Home = () => {
   const [loginbtn,setloginbtn]=useState(true);
@@ -87,9 +86,9 @@ const Home = () => {
 
     <div>
         <Header/>
-        <div>
+        <div className="absolute">
             <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/cb72daa5-bd8d-408b-b949-1eaef000c377/web/IN-en-20250825-TRIFECTA-perspective_a3209894-0b01-4ddb-b57e-f32165e20a3f_large.jpg" 
+            src={BG_Page} 
             alt="bg"
             className="brightness-[26%]"
             />

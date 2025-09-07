@@ -9,6 +9,7 @@ const TopBrowse = () => {
     if(!movies) return;
 
     const randomIndex=Math.floor(Math.random()*movies.length)
+    
     const mainmovies=movies[randomIndex];
 
     const {original_title,overview,id}=mainmovies;

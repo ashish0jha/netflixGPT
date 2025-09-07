@@ -8,7 +8,7 @@ const PopularMovies = () => {
     if(PopularMovies===null) return;
 
   return (
-    <div className="">
+    <div className="-mt-12">
         <MoviesSuggestion type="Popular" movieData={PopularMovies}/>
     </div>
   )

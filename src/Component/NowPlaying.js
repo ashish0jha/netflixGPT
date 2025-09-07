@@ -7,7 +7,7 @@ const NowPlaying = () => {
   if(NowPlayingMovies===null) return;
 
   return (
-    <div className="absolute top-48 mt-72 ">
+    <div className="relative z-10 -mt-[250px]">
         <MoviesSuggestion type="" movieData={NowPlayingMovies}/>
     </div>
     

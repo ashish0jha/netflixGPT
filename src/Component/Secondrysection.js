@@ -1,18 +1,16 @@
 import MoviesSuggestion from "./MoviesSuggestion"
 import PopularMovies from "./PopularMovies"
 import TopRated from "./TopRated"
+import UpcomingMovies from "./UpcomingMovies"
 
 const Secondrysection = () => {
   return (
-    <div className="my-10">
-        <MoviesSuggestion type="Trending"/>
+    <div className="">
         <PopularMovies/>
         <TopRated/>
-        <MoviesSuggestion type="Technology"/>
-        <MoviesSuggestion type="Ashish"/>
-        <MoviesSuggestion type="Ojha"/>
+        <UpcomingMovies/>
     </div>
   )
 }
 
-export default Secondrysection
+export default Secondrysection;

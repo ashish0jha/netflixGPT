@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import useUpcomingMovies from "../Hooks/useUpcomingMovies";
 
 
 const moviesSlice=createSlice({
@@ -7,6 +8,7 @@ const moviesSlice=createSlice({
         nowPlayingMovies:null,
         popularmovies:null,
         toprated:null,
+        upcomingMovies:null,
         
     },
     reducers:{
@@ -19,9 +21,12 @@ const moviesSlice=createSlice({
         addToprated:(state,action)=>{
             state.toprated=action.payload;
         },
+        addUpcomingMovies:(state,action)=>{
+            state.upcomingMovies=action.payload;
+        },
     },
 })
 
-export const {addnowPlayingMovies,addPopularMovies,addToprated} = moviesSlice.actions;
+export const {addnowPlayingMovies,addPopularMovies,addToprated,addUpcomingMovies} = moviesSlice.actions;
 
 export default moviesSlice.reducer;
