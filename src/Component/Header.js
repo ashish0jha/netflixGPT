@@ -5,15 +5,22 @@ import {auth} from "../utils/firebase"
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect, useState } from "react";
 import { logo } from "../utils/constants";
+import { toggleGptbtn } from "../utils/StatesSlice";
 
 const Header = () => {
   const Currentuser=useSelector((store)=>store.user);
   const navigate=useNavigate();
   const [profilename,setprofilename]=useState(false);
+  const searchtomovies=useSelector((store)=>store.States.GptPagebtn)
+
   if(profilename){
     setTimeout(()=>{
       setprofilename(false);
     },2000)
+  }
+
+  const LangChangeHandler=()=>{
+
   }
 
   const dispatch=useDispatch();
@@ -40,15 +47,32 @@ const Header = () => {
             className="w-44 mr-16"
             src={logo} alt="logo"/>
 
-            <ul className="text-lg flex gap-10">
-              <li>Home</li>
-              <li>Shows</li>
-              <li>Movies</li>
-              <li>Games</li>
-            </ul>
+          {Currentuser && <ul className="text-lg flex justify-center items-center gap-4 cursor-pointer">
+            <li className="hover:bg-gray-500 hover:bg-opacity-20 px-4 py-2 rounded-3xl">Home</li>
+            <li className="hover:bg-gray-500 hover:bg-opacity-20 px-4 py-2 rounded-3xl">Shows</li>
+            <li className="hover:bg-gray-500 hover:bg-opacity-20 px-4 py-2 rounded-3xl">Games</li>
+            <button 
+              className="hover:bg-gray-500 hover:bg-opacity-20 px-4 py-2 rounded-3xl"
+              onClick={()=>{
+                dispatch(toggleGptbtn())
+              }}>{searchtomovies ? "Movies" : "Search"}
+            </button>
+          </ul>}
         </div>
+        
+        
+        {!Currentuser && <select 
+          name="Language" 
+          id="multiple" 
+          className="text-black w-28 p-2 m-4 rounded-md"
+          onChange={LangChangeHandler}>
+          <option value="en">English</option>
+          <option value="hindi">Hindi</option>
+        </select>}
+        
+
         {Currentuser && <div className="flex justify-center items-center">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center cursor-pointer">
               <img 
               src={Currentuser.photoURL}
               className="w-10 h-9 rounded-sm"

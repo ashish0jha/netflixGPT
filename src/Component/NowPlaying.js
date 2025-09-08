@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
 import MoviesSuggestion from "./MoviesSuggestion";
 
-
 const NowPlaying = () => {
   const NowPlayingMovies=useSelector(store=>store.movies?.nowPlayingMovies);
   if(NowPlayingMovies===null) return;
 
   return (
-    <div className="relative z-10 -mt-[250px]">
+    <div className="relative z-10 -mt-[220px]">
         <MoviesSuggestion type="" movieData={NowPlayingMovies}/>
     </div>
     

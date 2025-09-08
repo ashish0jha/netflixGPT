@@ -90,7 +90,7 @@ const Home = () => {
             <img
             src={BG_Page} 
             alt="bg"
-            className="brightness-[26%]"
+            className="brightness-[30%]"
             />
         </div>
         <div>

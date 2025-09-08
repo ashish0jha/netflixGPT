@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useUpcomingMovies from "../Hooks/useUpcomingMovies";
-
 
 const moviesSlice=createSlice({
     name:"movies",
