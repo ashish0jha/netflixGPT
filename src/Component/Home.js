@@ -3,9 +3,10 @@ import { useState , useRef } from "react";
 import {checkValidation} from "../utils/validate";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BG_Page, Profile } from "../utils/constants";
+import { lang } from "../utils/langKeys";
 
 const Home = () => {
   const [loginbtn,setloginbtn]=useState(true);
@@ -14,6 +15,8 @@ const Home = () => {
   const dispatch=useDispatch();
 
   const [Validationmsg,setValidationmsg]=useState("");
+  
+  const selectedLang=useSelector((store)=>store.langConfig.configurelang);
 
   const name=useRef(null);
   const email=useRef(null);
@@ -97,13 +100,13 @@ const Home = () => {
             {
               loginbtn===true 
               ? <div  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <h1 className="font-bold text-white text-6xl text-center">Unlimited movies ,TV shows and more</h1>
-                  <h3 className="font-semibold text-white text-center my-6 text-2xl">Starts at ₹149. Cancel at any time.</h3>
-                  <p className="text-white text-lg">Ready to watch? Enter your email to create or restart your membership.</p>
-                  <button className="m-2 p-8 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white text-2xl"
+                  <h1 className="font-bold text-white text-6xl text-center">{lang[selectedLang].maintag}</h1>
+                  <h3 className="font-semibold text-white text-center my-6 text-2xl">{lang[selectedLang].pricing}</h3>
+                  <p className="text-white text-lg">{lang[selectedLang].mood}</p>
+                  <button className="m-2 p-8 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white text-2xl hover:scale-110 transition duration-300"
                   onClick={()=>{
                     setloginbtn(false);
-                  }}>Get Started</button>
+                  }}>{lang[selectedLang].btnText}</button>
               </div>
               : <div >
                   

@@ -4,14 +4,17 @@ import {onAuthStateChanged, signOut} from "firebase/auth";
 import {auth} from "../utils/firebase"
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect, useState } from "react";
-import { logo } from "../utils/constants";
+import { logo, supported_lang } from "../utils/constants";
 import { toggleGptbtn } from "../utils/StatesSlice";
+import { lang } from "../utils/langKeys";
+import { ChangeLang } from "../utils/langConfigSlice";
 
 const Header = () => {
   const Currentuser=useSelector((store)=>store.user);
   const navigate=useNavigate();
   const [profilename,setprofilename]=useState(false);
-  const searchtomovies=useSelector((store)=>store.States.GptPagebtn)
+  const searchtomovies=useSelector((store)=>store.States.GptPagebtn);
+  const dispatch=useDispatch();
 
   if(profilename){
     setTimeout(()=>{
@@ -19,11 +22,11 @@ const Header = () => {
     },2000)
   }
 
-  const LangChangeHandler=()=>{
-
+  const LangChangeHandler=(e)=>{
+      dispatch(ChangeLang(e.target.value));
   }
 
-  const dispatch=useDispatch();
+  
 
   useEffect(()=>{
       const unsubscribe=onAuthStateChanged(auth, (user) => {
@@ -66,8 +69,7 @@ const Header = () => {
           id="multiple" 
           className="text-black w-28 p-2 m-4 rounded-md"
           onChange={LangChangeHandler}>
-          <option value="en">English</option>
-          <option value="hindi">Hindi</option>
+          {supported_lang.map((lang)=><option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
         </select>}
         
 

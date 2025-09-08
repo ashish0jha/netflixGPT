@@ -13,3 +13,8 @@ export const API_options={
 export const MoviePoster="https://image.tmdb.org/t/p/w300";
 
 export const BG_Page="https://assets.nflxext.com/ffe/siteui/vlv3/cb72daa5-bd8d-408b-b949-1eaef000c377/web/IN-en-20250825-TRIFECTA-perspective_a3209894-0b01-4ddb-b57e-f32165e20a3f_large.jpg";
+
+export const supported_lang=[
+  {identifier:"en", name:"English"},
+  {identifier:"hindi", name:"Hindi"}
+]
