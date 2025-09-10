@@ -1,5 +1,4 @@
 const VideoTitle = ({title,overview}) => {
-
   return (
     <div className="absolute aspect-video h-screen top-0 pl-40 pt-64 bg-gradient-to-r from-black">
         <div className="text-white">
