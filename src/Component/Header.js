@@ -6,7 +6,6 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect, useState } from "react";
 import { logo, supported_lang } from "../utils/constants";
 import { toggleGptbtn } from "../utils/StatesSlice";
-import { lang } from "../utils/langKeys";
 import { ChangeLang } from "../utils/langConfigSlice";
 
 const Header = () => {
@@ -58,7 +57,7 @@ const Header = () => {
               className="hover:bg-gray-500 hover:bg-opacity-20 px-4 py-2 rounded-3xl"
               onClick={()=>{
                 dispatch(toggleGptbtn())
-              }}>{searchtomovies ? "Movies" : "Search"}
+              }}>{searchtomovies ? "Movies" : "GPTSearch"}
             </button>
           </ul>}
         </div>

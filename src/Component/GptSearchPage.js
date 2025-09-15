@@ -1,17 +1,18 @@
 import { BG_Page } from "../utils/constants";
+import GptSuggestedMovie from "./GptSuggestedMovie";
 import SearchBar from "./SearchBar";
 
 const GptSearchPage = () => {
   return (
-    <div>
-        <div className="absolute -z-10">
+    <div className="bg-black flex justify-center">
+        <div className="absolute">
             <img
             src={BG_Page} 
             alt="bg"
-            className="brightness-[30%]"
             />
         </div>
         <SearchBar/>
+        <GptSuggestedMovie/>
     </div>
   )
 }

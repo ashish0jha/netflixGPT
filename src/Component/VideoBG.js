@@ -16,6 +16,7 @@ const VideoBG = ({id}) => {
 
       settrailerId(Trailer?.key) 
   }
+  
   return (
     <div className="overflow-hidden relative z-0">
         <iframe

@@ -1,4 +1,3 @@
-import MoviesSuggestion from "./MoviesSuggestion"
 import PopularMovies from "./PopularMovies"
 import TopRated from "./TopRated"
 import UpcomingMovies from "./UpcomingMovies"

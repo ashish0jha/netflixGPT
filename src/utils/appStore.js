@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
 import moviesReducer from "./movieSlice";
 import StatesReducer from "./StatesSlice";
-import langConfigReducer from "./langConfigSlice"
+import langConfigReducer from "./langConfigSlice";
+import GPTSearchedMovieReducer from "./SuggestedSlice";
 
 const appStore=configureStore({
     reducer:{
@@ -10,6 +11,7 @@ const appStore=configureStore({
         movies:moviesReducer,
         States:StatesReducer,
         langConfig:langConfigReducer,
+        GPTSearchedMovie:GPTSearchedMovieReducer,
     }
 })
 
