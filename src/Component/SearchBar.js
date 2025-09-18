@@ -29,7 +29,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="absolute top-6 left-1/2 z-10">
+    <div className="absolute top-36 md:top-24 z-10 w-full md:w-1/2">
         <div className="flex items-center bg-white h-12 text-black rounded-xl">
             <p className="text-xl font-bold cursor-pointer bg-gray-300 p-[10px] px-5 rounded-l-lg" 
               onClick={()=>{

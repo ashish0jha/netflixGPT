@@ -36,10 +36,10 @@ const GptSuggestedMovie = () => {
   }, [SuggestedMoviesName]);
 
   return (
-    <div className="absolute top-24 p-10 ">
+    <div className="absolute top-40 md:top-32 p-10 ">
         {(movies.length===0 && checkbtn)
         ? 
-        <h2 className="text-xl font-bold text-center animate-pulse bg-red-600 p-5 rounded-lg">
+        <h2 className="text-xl font-bold text-center animate-pulse bg-white p-1 rounded-md text-black">
             Loading...
         </h2> : ""
         }

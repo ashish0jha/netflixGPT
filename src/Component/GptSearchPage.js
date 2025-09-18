@@ -9,6 +9,7 @@ const GptSearchPage = () => {
             <img
             src={BG_Page} 
             alt="bg"
+            className="h-screen object-cover md:h-auto"
             />
         </div>
         <SearchBar/>

@@ -93,16 +93,17 @@ const Home = () => {
             <img
             src={BG_Page} 
             alt="bg"
-            className="brightness-[30%]"
+            className="brightness-[30%] h-screen object-cover md:h-auto"
             />
         </div>
         <div>
             {
               loginbtn===true 
-              ? <div  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <h1 className="font-bold text-white text-6xl text-center">{lang[selectedLang].maintag}</h1>
+              ? <div  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center px-10 w-full md:w-fit">
+              
+                  <h1 className="font-bold text-white md:text-6xl text-4xl text-center">{lang[selectedLang].maintag}</h1>
                   <h3 className="font-semibold text-white text-center my-6 text-2xl">{lang[selectedLang].pricing}</h3>
-                  <p className="text-white text-lg">{lang[selectedLang].mood}</p>
+                  <p className="text-white text-lg text-center">{lang[selectedLang].mood}</p>
                   <button className="m-2 p-8 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white text-2xl hover:scale-110 transition duration-300"
                   onClick={()=>{
                     setloginbtn(false);
@@ -110,7 +111,7 @@ const Home = () => {
               </div>
               : <div >
                   
-                  <form  onSubmit={(e)=>e.preventDefault()} className="absolute top-1/4 left-1/3 w-3/12 flex flex-col p-10 bg-black bg-opacity-70 rounded-lg">
+                  <form  onSubmit={(e)=>e.preventDefault()} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col p-10 bg-black bg-opacity-70 rounded-lg">
                       <h1 className="text-3xl font-bold text-white m-4">{signup ? "Sign UP" : "Sign In"}</h1>
                       {signup && <input 
                       ref={name}
