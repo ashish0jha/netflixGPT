@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleGptbtn, toggleGptLodingbtn } from "../utils/StatesSlice";
 import { useRef } from "react";
 import { GoogleGenAI } from "@google/genai";
@@ -9,6 +9,7 @@ const SearchBar = () => {
   const dispatch=useDispatch();
   const userinput=useRef(null);
   const ai = new GoogleGenAI({ apiKey: GEMINI_KEY});
+  const Loadingbtn=useSelector(store=> store.States.Loadingbtn)
 
   const ClickHandler=()=>{
       if(!userinput){return}
@@ -43,7 +44,7 @@ const SearchBar = () => {
               onKeyDown={(e)=>{
                   if(e.key==="Enter"){
                       ClickHandler();
-                      dispatch(toggleGptLodingbtn());
+                      !Loadingbtn && dispatch(toggleGptLodingbtn());
                   }
               }}
             />

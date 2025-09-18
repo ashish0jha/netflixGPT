@@ -44,7 +44,7 @@ const GptSuggestedMovie = () => {
         </h2> : ""
         }
         {movies.length!==0 ? <div className=" bg-black bg-opacity-45">
-          <h2 className="text-xl font-bold">GT Suggested Movies</h2>
+          <h2 className="text-xl font-bold">GPT Suggested Movies</h2>
             <div className="flex flex-wrap gap-4">
                 {movies.map((movie, index) => (
                 <MoviesCard
