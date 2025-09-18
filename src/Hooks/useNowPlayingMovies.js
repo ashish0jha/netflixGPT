@@ -6,6 +6,7 @@ import { API_options } from "../utils/constants";
 const useNowPlayingMovies=()=>{
     const dispatch=useDispatch();
     const nowPlayingMovies=useSelector(store=>store.movies.nowPlayingMovies);
+    //ashish ojha this is
 
     useEffect(()=>{
         !nowPlayingMovies && fetchMovies();
