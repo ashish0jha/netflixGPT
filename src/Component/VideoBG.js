@@ -22,7 +22,7 @@ const VideoBG = ({id}) => {
   }
   
   return (
-    <div className="overflow-hidden relative z-0">
+    <div className="overflow-hidden relative z-0 md:mt-0 -translate-y-[170px] md:-translate-y-0">
         <iframe
           className="w-full h-screen aspect-video scale-150"
           src={`https://www.youtube.com/embed/${trailerIdfromRedux}?autoplay=1&mute=1&loop=1&playlist=${trailerIdfromRedux}`}
@@ -30,7 +30,7 @@ const VideoBG = ({id}) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <div className="absolute bottom-0 left-0 w-full h-40 
+        <div className="absolute bottom-60 md:bottom-0 left-0 w-full h-40 
                   bg-gradient-to-t from-black to-transparent">
         </div>
     </div>

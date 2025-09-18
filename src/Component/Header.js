@@ -43,18 +43,18 @@ const Header = () => {
   },[])
 
   return (
-    <div className="absolute w-full z-10 md:pl-[110px] py-2 bg-gradient-to-b from-black flex flex-wrap text-white justify-between overflow-hidden">
+    <div className="absolute w-full z-50 md:pl-[110px] py-2 bg-gradient-to-b from-black flex flex-wrap text-white justify-between overflow-hidden">
         <div className="flex items-center flex-wrap">
             <img 
             className="w-44 md:mr-16 mx-auto"
             src={logo} alt="logo"/>
 
           {Currentuser && <ul className="text-lg flex justify-center items-center gap-1 cursor-pointer">
-            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-4 py-2 rounded-3xl">Home</li>
-            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-4 py-2 rounded-3xl">Shows</li>
-            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-4 py-2 rounded-3xl">Games</li>
+            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Home</li>
+            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Shows</li>
+            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Games</li>
             <button 
-              className="hover:bg-gray-500 hover:bg-opacity-30 px-4 py-2 rounded-3xl"
+              className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl"
               onClick={()=>{
                 dispatch(toggleGptbtn())
               }}>{searchtomovies ? "Movies" : "GPTSearch"}
