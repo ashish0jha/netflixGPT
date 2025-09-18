@@ -30,7 +30,7 @@ const VideoBG = ({id}) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <div className="absolute bottom-60 md:bottom-0 left-0 w-full h-40 
+        <div className="hidden md:inline-block absolute bottom-60 md:bottom-0 left-0 w-full h-40 
                   bg-gradient-to-t from-black to-transparent">
         </div>
     </div>

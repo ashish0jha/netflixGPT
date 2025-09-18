@@ -4,7 +4,7 @@ import UpcomingMovies from "./UpcomingMovies"
 
 const Secondrysection = () => {
   return (
-    <div className="">
+    <div className="mt-10">
         <PopularMovies/>
         <TopRated/>
         <UpcomingMovies/>

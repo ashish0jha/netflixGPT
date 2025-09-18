@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 const GptSearchPage = () => {
   return (
-    <div className="bg-black flex justify-center">
+    <div className="bg-black flex justify-center overflow-hidden">
         <div className="absolute">
             <img
             src={BG_Page} 
