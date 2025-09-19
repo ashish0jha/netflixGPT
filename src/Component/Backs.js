@@ -20,7 +20,7 @@ const Backs = ({id}) => {
     <div className="overflow-hidden relative z-0 md:mt-0 -translate-y-[170px] md:-translate-y-0 rounded-md">
         <iframe
             className="w-full aspect-video scale-[200%]"
-            src={`https://www.youtube.com/embed/${trailerId}?autoplay=1&controls=0&rel=0&modestbranding=1&mute=1&loop=1&playlist=${trailerId}&disablekb=1`}
+            src={`https://www.youtube.com/embed/${trailerId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=${trailerId}&disablekb=1`}
             frameBorder="0"
             allow="autoplay; encrypted-media; picture-in-picture"
             allowFullScreen
