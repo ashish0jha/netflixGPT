@@ -17,7 +17,7 @@ const TopBrowse = () => {
     return (
         <div>
             <VideoBG id={id}/>
-            <VideoTitle title={original_title} overview={overview}/>
+            <VideoTitle title={original_title} overview={overview} id={id}/>
             <NowPlaying/>
         </div>
     )

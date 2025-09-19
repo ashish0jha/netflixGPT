@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {onAuthStateChanged, signOut} from "firebase/auth";
 import {auth} from "../utils/firebase"
 import { addUser, removeUser } from "../utils/userSlice";
@@ -25,19 +25,20 @@ const Header = () => {
       dispatch(ChangeLang(e.target.value));
   }
 
-  
-
   useEffect(()=>{
       const unsubscribe=onAuthStateChanged(auth, (user) => {
       if (user) {
         const {uid,email,displayName,photoURL} = user;
         dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
-        navigate("/Browse");
+        if (window.location.pathname === "/") {
+          navigate("/Browse");
+        }
       } else {
         dispatch(removeUser());
-        navigate("/");
-      }
-    });
+        if (window.location.pathname !== "/") {
+          navigate("/");
+        }
+    }});
     //unsubscribing the onAuthStateChanged when component is unmounted.
     return ()=>{unsubscribe()};
   },[])
@@ -50,14 +51,25 @@ const Header = () => {
             src={logo} alt="logo"/>
 
           {Currentuser && <ul className="text-lg flex justify-center items-center gap-1 cursor-pointer">
-            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Home</li>
-            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Shows</li>
+            <Link to={"/Browse"}>
+              <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Home</li>
+            </Link>
+            <Link to={"/Browse/shows"}>
+              <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Shows</li>
+            </Link>
+            
             <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Games</li>
             <button 
               className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl"
               onClick={()=>{
                 dispatch(toggleGptbtn())
-              }}>{searchtomovies ? "Movies" : "GPTSearch"}
+                if(searchtomovies===true){
+                  navigate("/Browse")
+                }else{
+                  navigate("/Browse/gptsearch")
+                }
+              }}>
+              {searchtomovies ? "Movies" : "GPTSearch"}
             </button>
           </ul>}
         </div>

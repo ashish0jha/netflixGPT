@@ -14,22 +14,11 @@ const Browse = () => {
   useToprated();
   useUpcomingMovies();
 
-  const showGptPage=useSelector((store)=>store.States.GptPagebtn)
-
   return (
     <div className="bg-black text-white">
       <Header/>
-      {
-        showGptPage 
-        ? <GptSearchPage/> 
-        : <>
-          <TopBrowse/>
-          <Secondrysection/>
-        </>
-
-      }
-      
-      
+      <TopBrowse/>
+      <Secondrysection/>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { API_options } from "../utils/constants";
 import MoviesCard from "./MoviesCard";
+import { Link } from "react-router-dom";
 
 const GptSuggestedMovie = () => {
   let SuggestedMoviesName = useSelector((store) => store.GPTSearchedMovie.suggested);
@@ -44,14 +45,18 @@ const GptSuggestedMovie = () => {
         </h2> : ""
         }
         {movies.length!==0 ? <div className=" bg-black bg-opacity-45">
-          <h2 className="text-xl font-bold">GPT Suggested Movies</h2>
+            <h2 className="text-xl font-bold">GPT Suggested Movies</h2>
             <div className="flex flex-wrap gap-4">
-                {movies.map((movie, index) => (
-                <MoviesCard
-                    key={index}
-                    poster_path={movie.poster_path}
-                    title={movie.title}
-                />
+                {movies.map((movie) => (
+                  <Link key={movie.id} to={`/Browse/${movie.id}`}>
+                      <MoviesCard
+                          poster_path={movie.poster_path}
+                          title={movie.title}
+                          id={movie.id}
+                          overveiw={movie.overview}
+                      />
+                  </Link>
+                
                 ))}
             </div></div> : ""
         }

@@ -1,23 +1,41 @@
+import { useState } from "react";
 import { MoviePoster } from "../utils/constants";
+import Backs from "./Backs";
 
-const MoviesCard = ({poster_path,title}) => {
+const MoviesCard = ({poster_path,title,id,overveiw}) => {
+  const [hovered,sethovered]=useState(false)
   return (
-    <div className="flex-shrink-0 md:m-5">
-        <div className="flex flex-col items-center rounded-md
-                md:hover:scale-110 
-                md:hover:border-white 
-                md:hover:border-[0.5px] 
-                cursor-pointer 
-                transition duration-200">
-            <img 
-            alt="MoviePoster" 
-            src={MoviePoster+poster_path}
-            className="md:w-40 rounded-md w-32 object-cover" 
-            />
-            <p className="text-center w-40">{title}</p>
+    <div
+      className="flex-shrink-0 md:m-5 cursor-pointer"
+      onMouseEnter={() => sethovered(true)}
+      onMouseLeave={() => sethovered(false)}
+    >
+      {hovered ? (
+        <div className="w-80 h-72 overflow-hidden rounded-lg relative hover:shadow-white hover:shadow-sm ">
+          <div className="relative">
+            <Backs id={id}/>
+            <div className="absolute inset-0 z-5"></div>
+            <h1 className="text-xl font-bold absolute bottom-2 left-5 z-10 text-white">{title}</h1>
+          </div>
+          <p className="p-3">{overveiw}</p>
         </div>
         
+      ) : (
+        <div
+          className="flex flex-col items-center rounded-md
+          md:hover:scale-110 duration-300 
+          hover:shadow-sm hover:shadow-white"
+        >
+          <img
+            alt="MoviePoster"
+            src={MoviePoster + poster_path}
+            className="md:w-40 rounded-md w-32 object-cover"
+          />
+          <p className="text-center w-40">{title}</p>
+        </div>
+      )}
     </div>
+
   )
 }
 

@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { GoogleGenAI } from "@google/genai";
 import { addSuggestedMovies } from "../utils/SuggestedSlice";
 import { GEMINI_KEY } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const dispatch=useDispatch();
+  const navigate=useNavigate()
   const userinput=useRef(null);
   const ai = new GoogleGenAI({ apiKey: GEMINI_KEY});
   const Loadingbtn=useSelector(store=> store.States.Loadingbtn)
@@ -34,7 +36,7 @@ const SearchBar = () => {
         <div className="flex items-center bg-white h-12 text-black rounded-xl">
             <p className="text-xl font-bold cursor-pointer bg-gray-300 p-[10px] px-5 rounded-l-lg" 
               onClick={()=>{
-                  dispatch(toggleGptbtn())
+                navigate("/Browse")
               }}>←</p>
             <input
               ref={userinput} 
