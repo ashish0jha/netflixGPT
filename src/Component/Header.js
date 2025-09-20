@@ -57,8 +57,10 @@ const Header = () => {
             <Link to={"/Browse/shows"}>
               <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Shows</li>
             </Link>
+            <Link to={"/Browse/games"}>
+              <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Games</li>
+            </Link>
             
-            <li className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl">Games</li>
             <button 
               className="hover:bg-gray-500 hover:bg-opacity-30 px-3 py-2 rounded-3xl"
               onClick={()=>{
@@ -86,6 +88,7 @@ const Header = () => {
 
         {Currentuser && <div className="flex justify-center items-center">
             <div className="flex flex-col items-center cursor-pointer">
+            
               <img 
               src={Currentuser.photoURL}
               className="w-10 h-9 rounded-sm hidden md:inline-block "

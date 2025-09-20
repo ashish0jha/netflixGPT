@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_options } from "../utils/constants";
+import { API_options, BG_Page, MoviePoster } from "../utils/constants";
 
 const Backs = ({id}) => {
   const [trailerId,settrailerId]=useState(null);
@@ -15,7 +15,16 @@ const Backs = ({id}) => {
       const Trailer=filteredData.length ? filteredData[0] : json.results[0];
       settrailerId(Trailer?.key)
   }
-  
+  if(!trailerId){
+    return (
+      <div>
+        <img 
+          src={BG_Page}
+          alt=""
+        />
+      </div>
+    )
+  }
   return (
     <div className="overflow-hidden relative z-0 md:mt-0 -translate-y-[170px] md:-translate-y-0 rounded-md">
         <iframe

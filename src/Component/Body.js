@@ -5,6 +5,8 @@ import { RouterProvider } from "react-router-dom";
 import FullMovie from "./FullMovie";
 import GptSearchPage from "./GptSearchPage";
 import TVshows from "./TVshows";
+import Games from "./Games";
+import ShowsDetails from "./ShowsDetails";
 
 const Body = () => {
     const AppRouter=createBrowserRouter([
@@ -27,7 +29,15 @@ const Body = () => {
         {
           path:"/Browse/shows",
           element:<TVshows/>
-        }
+        },
+        {
+          path:"/Browse/games",
+          element:<Games/>
+        },
+        {
+          path:"/Browse/shows/:seriesId",
+          element:<ShowsDetails/>
+        },
     ])
 
   return (
