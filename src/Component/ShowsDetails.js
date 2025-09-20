@@ -14,7 +14,6 @@ const ShowsDetails = () => {
     const fetchDetails=async ()=>{
         const data=await fetch(`https://api.themoviedb.org/3/tv/${seriesId}?language=en-US`,API_options);
         const json=await data.json();
-        console.log(json)
         setdetails(json);
     }
     const clickHandler=()=>{

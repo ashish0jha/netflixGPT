@@ -22,7 +22,7 @@ const PopularTVshows = () => {
       {
         popularTVshows.map((show)=>(
           <Link key={show?.id} to={`/Browse/shows/${show?.id}`}>
-              <MoviesCard  poster_path={show?.poster_path} title={show?.original_name} id={show?.id} overveiw={show?.overview}/>
+              <MoviesCard  poster_path={show?.poster_path} title={show?.original_name} id={show?.id} overveiw={show?.overview} backdrop_path={show.backdrop_path}/>
           </Link>
           
         ))

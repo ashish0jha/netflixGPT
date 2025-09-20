@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { MoviePoster } from "../utils/constants";
 import Backs from "./Backs";
 
-const MoviesCard = ({ poster_path, title, id, overveiw}) => {
+const MoviesCard = ({ poster_path, title, id, overveiw,backdrop_path}) => {
   const [hovered, setHovered] = useState(false);
   const hoverTimeout = useRef(null);
 
@@ -26,7 +26,7 @@ const MoviesCard = ({ poster_path, title, id, overveiw}) => {
       {hovered ? (
         <div className="w-80 h-72 overflow-hidden rounded-lg relative hover:shadow-white hover:shadow-sm transition-all duration-300">
           <div className="relative">
-            <Backs id={id}/>
+            <Backs id={id} backdrop_path={backdrop_path}/>
             <div className="absolute inset-0 z-5"></div>
             <h1 className="text-xl font-bold absolute bottom-2 left-5 z-10 text-white">{title}</h1>
           </div>

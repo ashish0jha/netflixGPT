@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API_options, BG_Page, MoviePoster } from "../utils/constants";
 
-const Backs = ({id}) => {
+const Backs = ({id,backdrop_path}) => {
   const [trailerId,settrailerId]=useState(null);
   //fetch Data
   useEffect(()=>{
@@ -19,7 +19,7 @@ const Backs = ({id}) => {
     return (
       <div>
         <img 
-          src={BG_Page}
+          src={MoviePoster+backdrop_path}
           alt=""
         />
       </div>
@@ -34,8 +34,6 @@ const Backs = ({id}) => {
             allow="autoplay; encrypted-media; picture-in-picture"
             allowFullScreen
         ></iframe>
-
-
     </div>
   )
 }

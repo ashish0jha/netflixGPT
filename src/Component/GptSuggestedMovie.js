@@ -60,6 +60,7 @@ const GptSuggestedMovie = () => {
                           title={movie.title}
                           id={movie.id}
                           overveiw={movie.overview}
+                          backdrop_path={movie.backdrop_path}
                       />
                   </Link>
                 

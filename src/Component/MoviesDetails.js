@@ -50,7 +50,7 @@ const MoviesDetails = ({id}) => {
           className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 cursor-pointer"
           onClick={() => setplay(false)}
         >
-          <TrailerMovie id={details?.id} />
+          <TrailerMovie id={details?.id}/>
         </div>
       )}
       
