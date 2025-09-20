@@ -7,7 +7,11 @@ const MoviesCard = ({poster_path,title,id,overveiw}) => {
   return (
     <div
       className="flex-shrink-0 md:m-5 cursor-pointer"
-      onMouseEnter={() => sethovered(true)}
+      onMouseEnter={() => {
+        setTimeout(()=>{
+          sethovered(true)
+        },500)
+      }}
       onMouseLeave={() => sethovered(false)}
     >
       {hovered ? (
@@ -17,13 +21,12 @@ const MoviesCard = ({poster_path,title,id,overveiw}) => {
             <div className="absolute inset-0 z-5"></div>
             <h1 className="text-xl font-bold absolute bottom-2 left-5 z-10 text-white">{title}</h1>
           </div>
-          <p className="p-3">{overveiw}</p>
+          <p className="p-3 text-white">{overveiw}</p>
         </div>
         
       ) : (
         <div
           className="flex flex-col items-center rounded-md
-          md:hover:scale-110 duration-300 
           hover:shadow-sm hover:shadow-white"
         >
           <img
@@ -31,7 +34,7 @@ const MoviesCard = ({poster_path,title,id,overveiw}) => {
             src={MoviePoster + poster_path}
             className="md:w-40 rounded-md w-32 object-cover"
           />
-          <p className="text-center w-40">{title}</p>
+          <p className="text-center w-40 text-white">{title}</p>
         </div>
       )}
     </div>

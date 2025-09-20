@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { API_options } from "../utils/constants";
 import MoviesCard from "./MoviesCard";
 import { Link } from "react-router-dom";
+import { BG_Page } from "../utils/constants";
 
 const GptSuggestedMovie = () => {
   let SuggestedMoviesName = useSelector((store) => store.GPTSearchedMovie.suggested);
@@ -37,15 +38,20 @@ const GptSuggestedMovie = () => {
   }, [SuggestedMoviesName]);
 
   return (
-    <div className="absolute top-40 md:top-32 mt-14 md:p-5">
+    <div className="absolute top-40 md:top-32 mt-14 z-50" style={{
+                                backgroundImage: `url(${BG_Page})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                              }} >
+        <div className="absolute inset-0 bg-black opacity-80"></div>
         {(movies.length===0 && checkbtn)
         ? 
         <h2 className="text-xl font-bold text-center animate-pulse bg-white p-1 rounded-md text-black">
             Loading...
         </h2> : ""
         }
-        {movies.length!==0 ? <div className=" bg-black bg-opacity-45">
-            <h2 className="text-xl font-bold">GPT Suggested Movies</h2>
+        {movies.length!==0 ? <div className="relative z-10" >
+            <h2 className="text-xl font-bold text-white p-2">GPT Suggested Movies</h2>
             <div className="flex flex-wrap gap-4">
                 {movies.map((movie) => (
                   <Link key={movie.id} to={`/Browse/${movie.id}`}>

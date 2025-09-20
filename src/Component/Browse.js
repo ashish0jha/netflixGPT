@@ -5,8 +5,6 @@ import Secondrysection from "./Secondrysection";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import useToprated from "../Hooks/useToprated";
 import useUpcomingMovies from "../Hooks/useUpcomingMovies";
-import GptSearchPage from "./GptSearchPage";
-import { useSelector } from "react-redux";
 
 const Browse = () => {
   useNowPlayingMovies();

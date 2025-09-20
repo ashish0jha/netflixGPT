@@ -11,7 +11,7 @@ const GptSearchPage = () => {
             <img
             src={BG_Page} 
             alt="bg"
-            className="h-screen object-cover md:h-auto"
+            className="h-screen object-cover md:h-auto brightness-[20%]"
             />
         </div>
         <SearchBar/>
